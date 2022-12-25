@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GridSpace extends StatelessWidget {
+class GridElement extends StatelessWidget {
   final int flex;
 
   final double? height;
@@ -9,7 +9,7 @@ class GridSpace extends StatelessWidget {
 
   final Widget? child;
 
-  const GridSpace({required this.flex, this.height, this.width, super.key, this.child});
+  const GridElement({required this.flex, required this.child, this.height, this.width, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,10 @@ class GridSpace extends StatelessWidget {
         child: SizedBox(
           height: height,
           width: width,
-          child: child,
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: child,
+          ),
         ),
       ),
     );
